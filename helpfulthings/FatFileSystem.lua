@@ -50,11 +50,14 @@ local function getFATS()
           .. "\n(We are searching for \"--[[FATFILE\")")
         repeat
           if ln and type(ln) == "string" then -- if the file is empty, it will error without this.
-            if ln:find("--[[FATFILE") then
+            print("Testing, 123")
+            if ln:find("--[[FATFILE") then -- < Error
+              print("Testing, 321")
               fats[#fats + 1] = tab[i]
               break
             end
           end
+          ln = h.readLine()
         until not ln
         h.close()
       else
