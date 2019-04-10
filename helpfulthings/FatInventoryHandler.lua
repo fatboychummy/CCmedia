@@ -1,6 +1,6 @@
 --[[
 2
-https://github.com/fatboychummy/CCmedia/blob/updateTesting/helpfulthings/FatInventoryHandler.lua
+https://github.com/fatboychummy/CCmedia/blob/master/helpfulthings/FatInventoryHandler.lua
 ]]
 
 local meta = {}
