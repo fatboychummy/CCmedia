@@ -1,6 +1,6 @@
 --[[FATFILE
-1
-
+2
+https://github.com/fatboychummy/CCmedia/edit/updateTesting/helpfulthings/FatErrors.lua
 ]]
 
 -- Error handling functions
