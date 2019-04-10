@@ -1,6 +1,6 @@
 --[[FATFILE
 2
-https://github.com/fatboychummy/CCmedia/blob/master/FatFileSystem.lua
+https://raw.githubusercontent.com/fatboychummy/CCmedia/master/FatFileSystem.lua
 ]]
 
 local funcs
