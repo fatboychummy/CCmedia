@@ -1,6 +1,6 @@
 --[[
 1
-This file wraps inventories, and can be used to make inventory handling... easy.
+
 ]]
 
 local meta = {}
