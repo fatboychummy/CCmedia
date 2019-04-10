@@ -1,6 +1,6 @@
 --[[FATFILE
 2
-https://raw.githubusercontent.com/fatboychummy/CCmedia/master/FatFileSystem.lua
+https://raw.githubusercontent.com/fatboychummy/CCmedia/master/FatFileUpdateHandler.lua
 ]]
 
 if not fs.exists("/FatFileSystem.lua") then
