@@ -1,4 +1,7 @@
+--[[FATFILE
+1
 
+]]
 
 local function deepCopy(a)
   local b = {}
