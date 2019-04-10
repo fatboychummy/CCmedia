@@ -46,8 +46,8 @@ local function updateFile(fileInfo)
         if version < ver then
           local h2 = fs.open(fileInfo.file, "w")
           if h2 then
-            h.writeLine(open)
-            h.writeLine(verLine)
+            h2.writeLine(open)
+            h2.writeLine(verLine)
             h2.write(h.readAll())
             h.close()
             h2.close()
@@ -58,12 +58,12 @@ local function updateFile(fileInfo)
               .. tostring(fileInfo.file) .. ")."
           end
         else
-          return false, "Failed to open http handle ( "
-            .. tostring(fileInfo.location) .. ") for file \""
-            .. tostring(fileInfo.file) .. "\"."
+          h.close()
         end
       else
-        h.close()
+        return false, "Failed to open http handle ( "
+          .. tostring(fileInfo.location) .. ") for file \""
+          .. tostring(fileInfo.file) .. "\"."
       end
     else
       return false, "Missing file location."
