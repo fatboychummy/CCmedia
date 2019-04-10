@@ -1,6 +1,6 @@
 --[[FATFILE
-1
-
+2
+https://github.com/fatboychummy/CCmedia/blob/master/helpfulthings/FatQuickUtilities.lua
 ]]
 
 local function deepCopy(a)
