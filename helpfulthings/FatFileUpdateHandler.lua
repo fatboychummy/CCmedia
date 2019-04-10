@@ -1,6 +1,6 @@
 --[[FATFILE
-2
-https://raw.githubusercontent.com/fatboychummy/CCmedia/master/FatFileUpdateHandler.lua
+3
+https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatFileUpdateHandler.lua
 ]]
 
 if not fs.exists("/FatFileSystem.lua") then
@@ -71,7 +71,7 @@ local function updateFile(fileInfo)
   else
     return false, "Missing http location information."
   end
-  return false, "An unknown thing has occured.  This shouldn't happen."
+  return false, "No update required."
 end
 
 local function updateAllFATS()
