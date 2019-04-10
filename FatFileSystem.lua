@@ -1,16 +1,9 @@
 --[[FATFILE
-2
+1
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/FatFileSystem.lua
 ]]
 
 local funcs
-
-
-
-
-
-
-
 
 -- Functions returned:
 
