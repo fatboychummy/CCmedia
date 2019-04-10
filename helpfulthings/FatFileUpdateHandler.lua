@@ -1,6 +1,6 @@
 --[[FATFILE
 2
-https://raw.githubusercontent.com/fatboychummy/CCmedia/blob/master/helpfulthings/FatFileUpdateHandler.lua
+https://raw.githubusercontent.com/fatboychummy/CCmedia/master/FatFileSystem.lua
 ]]
 
 if not fs.exists("/FatFileSystem.lua") then
@@ -39,11 +39,11 @@ local function updateFile(fileInfo)
   if fileInfo["location"] then
     if fileInfo["file"] then
       local h = http.get(fileInfo.location)
-      local open = h.readLine()
-      local verLine = h.readLine()
-      local ver = tonumber(verLine)
-      if version < ver then
-        if h then
+      if h then
+        local open = h.readLine()
+        local verLine = h.readLine()
+        local ver = tonumber(verLine)
+        if version < ver then
           local h2 = fs.open(fileInfo.file, "w")
           if h2 then
             h.writeLine(open)
@@ -75,13 +75,19 @@ local function updateFile(fileInfo)
 end
 
 local function updateAllFATS()
+  print("Locating FAT files.")
   local FATS = fileSystem.getFATS()
+  print("Done, found " .. tostring(#FATS) .. " total files.")
   for i = 1, #FATS do
+    print("Updating:", FATS[i]["file"], "(", FATS[i]["version"], ")")
     local ok, err = updateFile(FATS[i])
     if not ok then
       printError(err)
+    else
+      print("Done, no errors.")
     end
   end
+  print("Updated all files.")
 end
 
 return {
