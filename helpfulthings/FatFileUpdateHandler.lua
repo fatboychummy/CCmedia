@@ -1,18 +1,15 @@
 --[[FATFILE
-3
+4
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatFileUpdateHandler.lua
 ]]
 
 if not fs.exists("/FatFileSystem.lua") then
   error("FatFileSystem.lua was not found in the root directory.", -1)
-else
-  print("FatFileSystem is in the root directory.")
 end
 
 local fileSystem = dofile("FatFileSystem.lua")
 local fe = fileSystem.betterFind("FatErrors.lua")
 if #fe == 1 then
-  print("FatErrors exists.")
   fe = fe[1]
   fe = dofile(fe)
 elseif #fe > 1 then
