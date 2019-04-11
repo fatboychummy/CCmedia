@@ -1,5 +1,5 @@
 --[[FATFILE
-3
+4
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatErrors.lua
 ]]
 
@@ -38,14 +38,15 @@ local function er(reason, ...)
     str = str .. ex[1]
   else
       -- "Function: An unexpected error occured."
-    str = str .. "An unexpected error occured."
+    str = str .. "An unexpected error occured. " .. tostring(reason) .. "  "
+      .. textutils.serialize(ex)
   end
   return str
 end
 
-local function bassert(assertion, level, func, reason, ...)
+local function bassert(assertion, level, reason, ...)
   if not assertion then
-    error(er(func, reason, ...), level + 1)
+    error(er(reason, ...), level + 1)
     -- error with the error level raised by one (since this function was called)
     -- by the assertion
   end
