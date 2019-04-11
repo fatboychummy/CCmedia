@@ -1,5 +1,5 @@
 --[[FATFILE
-4
+5
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatInventoryHandler.lua
 ]]
 
@@ -13,7 +13,7 @@ if not fs.exists("/FatFileSystem.lua") then
   error("FatFileSystem.lua was not found in the root directory.", -1)
 end
 
-local fileSystem = dofile("FatFileSystem.lua")
+local fileSystem = dofile("/FatFileSystem.lua")
 local fe = fileSystem.betterFind("FatErrors.lua")
 if #fe == 1 then
   fe = fe[1]
