@@ -1,5 +1,5 @@
 --[[FATFILE
-3
+4
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatInventoryHandler.lua
 ]]
 
@@ -9,52 +9,24 @@ local funcs = {}
 meta.__index = met
 
 -- Error handling functions
-local function er(reason, ...)
-  local ex = {...}
-  local str = ""
-
-  if reason == 0 then
-      -- "Function: Bad argument #1. Expected inventory, got <some type>"
-    local sSelf = ex[1]
-    local arg = ex[2]
-    str = str .. "Bad argument #1"
-      .. ". Expected inventory, got "
-    if type(sSelf) == "table" then
-      if sSelf["_type"] and sSelf["_type"] then
-        str = str .. tostring(sSelf._type)
-      else
-        str = str .. "table"
-      end
-    else
-      str = str .. type(sSelf)
-    end
-    str = str .. "."
-  elseif reason == 1 then
-      -- "Function: Bad argument #<arg>. Expected <type>, got <someOtherType>"
-    str = str .. "Bad argument #" .. tostring(ex[1]) .. ". Expected "
-      .. tostring(ex[2]) .. ", got " .. type(ex[3]) .. "."
-  elseif reason == 2 then
-      -- "Function: Bad argument #<arg>.
-      -- Expected name of peripheral (got <name>)"
-    str = str .. "Bad argument #" .. tostring(ex[1])
-      .. ". Expected name of peripheral (got " .. ex[2] .. ")."
-  elseif reason == -1 then
-      -- "Function: <error>"
-    str = str .. ex[1]
-  else
-      -- "Function: An unexpected error occured."
-    str = str .. "An unexpected error occured."
-  end
-  return str
+if not fs.exists("/FatFileSystem.lua") then
+  error("FatFileSystem.lua was not found in the root directory.", -1)
 end
 
-local function bassert(assertion, level, func, reason, ...)
-  if not assertion then
-    error(er(func, reason, ...), level + 1)
-    -- error with the error level raised by one (since this function was called)
-    -- by the assertion
-  end
+local fileSystem = dofile("FatFileSystem.lua")
+local fe = fileSystem.betterFind("FatErrors.lua")
+if #fe == 1 then
+  fe = fe[1]
+  fe = dofile(fe)
+elseif #fe > 1 then
+  error("Multiple copies of FatErrors.lua exist!")
+else
+  error("FatErrors.lua does not exist anywhere!")
 end
+
+local bassert = fe.bassert
+local er = fe.er
+fe = nil
 ----
 
 
