@@ -7,3 +7,5 @@ Just a compilation of random things I make.
 Why do you care?
 
 # Can I download ...
+
+... sure why not just follow the license and be a good boy
