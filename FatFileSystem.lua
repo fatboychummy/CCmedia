@@ -41,7 +41,7 @@ local function betterFind(toFind, dir, isDirectory, ignore)
       "betterFind: Bad argument 2: required string or nil")
   assert(type(isDirectory) == "boolean" or type(isDirectory) == "nil",
       "betterFind: Bad argument 3: required boolean or nil")
-  assert(type(ignore) == "boolean" or type(ignore) == "nil",
+  assert(type(ignore) == "table" or type(ignore) == "nil",
       "betterFind: Bad argument 4: required table or nil")
 
   local function splitData(inp)
