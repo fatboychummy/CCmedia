@@ -3,23 +3,29 @@
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatFileUpdateHandler.lua
 ]]
 
-if not fs.exists("/FatFileSystem.lua") then
-  error("FatFileSystem.lua was not found in the root directory.", -1)
+local needLoad = false
+
+local fe
+
+if needLoad then
+  if not fs.exists("/FatFileSystem.lua") then
+    error("FatFileSystem.lua was not found in the root directory.", -1)
+  end
+
+  local fileSystem = dofile("/FatFileSystem.lua")
+  fe = fileSystem.betterFind("FatErrors.lua")
+  if #fe == 1 then
+    fe = fe[1]
+    fe = dofile(fe)
+  elseif #fe > 1 then
+    error("Multiple copies of FatErrors.lua exist!")
+  else
+    error("FatErrors.lua does not exist anywhere!")
+  end
 end
 
-local fileSystem = dofile("/FatFileSystem.lua")
-local fe = fileSystem.betterFind("FatErrors.lua")
-if #fe == 1 then
-  fe = fe[1]
-  fe = dofile(fe)
-elseif #fe > 1 then
-  error("Multiple copies of FatErrors.lua exist!")
-else
-  error("FatErrors.lua does not exist anywhere!")
-end
-
-local bassert = fe.bassert
-local er = fe.er
+local bassert = type(fe) == "table" and type(fe.bassert) == "function" and fe.bassert 
+              or function(a, ...) if not a then error(table.concat({...}, " "), -1) end
 fe = nil
 
 
@@ -87,6 +93,12 @@ local function updateAllFATS()
   print("Updated all files.")
 end
 
+  
+if needLoad then
+  return {updateFile = updateFile}
+else
+  return {updateAllFATS = updateAllFATS, updateFile = updateFile}
+end
 return {
   updateAllFATS = updateAllFATS,
   updateFile = updateFile
