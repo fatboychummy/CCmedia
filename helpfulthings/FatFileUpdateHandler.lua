@@ -25,7 +25,7 @@ if needLoad then
 end
 
 local bassert = type(fe) == "table" and type(fe.bassert) == "function" and fe.bassert 
-              or function(a, ...) if not a then error(table.concat({...}, " "), -1) end
+              or function(a, ...) if not a then error(table.concat({...}, " "), 3) end
 fe = nil
 
 
