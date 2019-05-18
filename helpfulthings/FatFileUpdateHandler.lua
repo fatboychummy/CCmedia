@@ -79,6 +79,7 @@ local function updateFile(fileInfo)
         error("Failed to open http handle ( "
               .. tostring(fileInfo.location) .. ") for file \""
               .. tostring(fileInfo.file) .. "\". (write)")
+      end
     else
       error("Missing file location information.")
     end
