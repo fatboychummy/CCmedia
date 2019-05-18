@@ -105,11 +105,18 @@ end
 
 
 if needLoad then
-  return {updateFile = updateFile}
+  return {
+    updateFile = updateFile,
+    updateCheck = updateCheck
+  }
 else
-  return {updateAllFATS = updateAllFATS, updateFile = updateFile}
+  return {
+    updateAllFATS = updateAllFATS,
+    updateFile = updateFile
+  }
 end
 return {
   updateAllFATS = updateAllFATS,
-  updateFile = updateFile
+  updateFile = updateFile,
+  updateCheck = updateCheck
 }
