@@ -113,7 +113,8 @@ if needLoad then
 else
   return {
     updateAllFATS = updateAllFATS,
-    updateFile = updateFile
+    updateFile = updateFile,
+    updateCheck = updateCheck
   }
 end
 return {
