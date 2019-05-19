@@ -1,5 +1,5 @@
 --[[FATFILE
-8
+9
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatFileUpdateHandler.lua
 ]]
 
@@ -69,7 +69,7 @@ local function updateFile(fileInfo)
         if h2 then
           h2:write(h.readAll()):close()
           h.close()
-          return true
+          return true, "Update complete."
         else
           h.close()
           return false, "Failed to open file for writing ("
