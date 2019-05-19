@@ -1,5 +1,5 @@
 --[[FATFILE
-6
+7
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatFileUpdateHandler.lua
 ]]
 
@@ -49,9 +49,9 @@ local function updateCheck(fileInfo)
         return true
       end
     else
-      error("Failed to open http handle ( "
+      return false, "Failed to open http handle ( "
         .. tostring(fileInfo.location) .. ") for file \""
-        .. tostring(fileInfo.file) .. "\". (update-check)")
+        .. tostring(fileInfo.file) .. "\". (update-check)"
     end
   else
     return false, "Missing http location information."
