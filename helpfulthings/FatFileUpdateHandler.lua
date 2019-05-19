@@ -1,5 +1,5 @@
 --[[FATFILE
-5
+6
 https://raw.githubusercontent.com/fatboychummy/CCmedia/master/helpfulthings/FatFileUpdateHandler.lua
 ]]
 
